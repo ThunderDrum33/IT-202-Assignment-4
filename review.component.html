@@ -1,0 +1,24 @@
+<div class="container py-4">
+  <h2 class="mb-3"> Review your selection: </h2>
+  <div *ngIf="error" class="alert alert-warning">{{ error }}</div>
+  <div *ngIf="product" class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <alt img [src]="product.image" class="img-fluid rounded-start" [alt]="product.name" />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">{{ product.description }}</p>
+          <p class="card-text"><span class="fw-semibold">$ {{ product.price }}</span></p>
+          <button class="btn btn-success" (click)="submitOrder()" [disabled]="submitting">
+            {{ submitting ? 'Submitting...' : 'Submit Order' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="message" class="alert alert-success mt-3">
+    {{ message }}
+  </div>
+</div>
