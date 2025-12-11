@@ -1,0 +1,16 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4"> Products for (fake) Sale: </h2>
+  <div class="row">
+    <div class="col-md-3" *ngFor="let product of products">
+      <div class="card h-100">
+        <img [src]="product.image" class="card-img-top" alt="{{ product.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">{{ product.description }}</p>
+          <p><strong>${{ product.price }}</strong></p>
+          <button class="btn btn-primary w-100" (click)="buyProduct(product)">Buy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
